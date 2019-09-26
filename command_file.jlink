@@ -2,5 +2,5 @@ si SWD
 speed 4000
 r
 h
-loadfile dist/default/production/hello_cortex_m0.production.hex
+loadfile main.hex
 q
