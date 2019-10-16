@@ -2,21 +2,25 @@
 
 #define LED ((unsigned int) 5)
 
-void delay(unsigned int msec) {
-    unsigned int n = 50000;
-    while (msec > 0) {
-        while (n > 0) {
-            n--;
-        }
-        msec--;
-    }
+/*
+ * Initialize the SysTick registers to provide a roughly 1-second interval
+ * interrupt.
+ */
+void initialize_systick_timer(void) {
+    SysTick_Config(500000);
+}
+
+/*
+ * When the SysTick timer hits zero, Toggle the LED.
+ */
+void SysTick_Handler(void) {
+    REG_PORT_OUTTGL0 |= 1<<LED;
 }
 
 void main(void) {
     REG_PORT_DIR0 |= (1<<LED);  // Set to output
+    initialize_systick_timer(); // Start the SysTick timer/interrupt
 
-    while (1) {
-        REG_PORT_OUTTGL0 |= (1<<LED);   // Toggle LED
-        delay(1000);
-    }
+    // Don't need to do anything, the interrupt will handle it
+    while (1) { }
 }

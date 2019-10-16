@@ -33,3 +33,7 @@ $(ELF):		$(OBJS)
 
 clean:
 	rm -f $(OBJS) $(OBJS:.o=.d) $(ELF)
+
+# Upload the new code to the chip
+flash: $(HEX)
+	./upload_firmware.sh
