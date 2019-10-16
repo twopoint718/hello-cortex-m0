@@ -22,10 +22,9 @@ This is an [Arm Cortex-M0](https://developer.arm.com/ip-products/processors/cort
        make
 4. Install the [J-Link Software and Documentation Pack](https://www.segger.com/downloads/jlink/#J-LinkSoftwareAndDocumentationPack)
 5. Upload the code to the dev board using the [J-Link](https://www.segger.com/products/debug-probes/j-link/) (or another debug probe).
-   If using a J-Link, you can use the provided script to upload the firmware:
+   If using a J-Link, you can use the provided script, `upload_firmware.sh`, to upload the firmware:
 
-       upload_firmware.sh
+       make flash
 6. ℹ️ _Optional:_ You may also start the `JLinkGDBServer`, which came with the J-Link download.
    You may then connect to the board and do all the usual debugging things that you are used to.
    How exactly this is set up will vary a lot by editor & environment.
-   
