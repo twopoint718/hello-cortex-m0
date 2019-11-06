@@ -1,4 +1,5 @@
 #include "samd10c14a.h"
+#include "LibrePTC.h"
 
 #define LED ((unsigned int) 5)
 
@@ -12,6 +13,7 @@ void SysTick_Handler(void) {
 void main(void) {
     REG_PORT_DIR0 |= (1<<LED);  // Set to output
     SysTick_Config(1000000);     // Initialize the SysTick registers
+    ptcConfigureClock();
 
     // Don't need to do anything, the interrupt will handle it
     while (1) { }
